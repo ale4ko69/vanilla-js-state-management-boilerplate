@@ -18,7 +18,9 @@
         <section class="app">
             <section class="app__input">
                 <h2 class="app__heading">What you've done</h2>
-                <div class="js-items" aria-live="polite" aria-label="A list of items you have done"></div>
+                <div class="js-items" aria-live="polite" aria-label="A list of items you have done">
+
+                </div>
                 <form class="[ new-item ] [ boilerform ] [ js-form ]">
                     <div class="boilerform">
                         <!-- Form styles from the https://boilerform.design boilerplate -->
@@ -38,6 +40,14 @@
             </aside>
         </section>
     </main>
-    <script type="module" src="js/main.js"></script>
+    <script type="module">
+        (async ()=>{
+            const {default: ToDoList} = await import('./js/main.js')
+            globalThis.todo = new ToDoList()
+            globalThis.todo.render()
+        })()
+
+
+    </script>
 </body>
 </html>
